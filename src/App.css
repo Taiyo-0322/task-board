@@ -99,6 +99,22 @@
   word-break: break-word;
 }
 
+.task-item__text--clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.task-item__text--clickable:hover {
+  color: #4a90e2;
+}
+
+.task-item__arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-right: 6px;
+  color: #888;
+}
+
 .task-item--completed .task-item__main .task-item__text {
   text-decoration: line-through;
   color: #999;

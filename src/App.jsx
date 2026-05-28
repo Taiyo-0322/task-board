@@ -27,9 +27,15 @@ export default function App() {
   }
 
   const toggleTask = (id) => {
-    setTasks(tasks.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    ))
+    setTasks(tasks.map((task) => {
+      if (task.id !== id) return task
+      const next = !task.completed
+      return {
+        ...task,
+        completed: next,
+        subtasks: (task.subtasks ?? []).map((s) => ({ ...s, completed: next })),
+      }
+    }))
   }
 
   const deleteTask = (id) => {
