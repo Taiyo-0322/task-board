@@ -1,6 +1,6 @@
 import TaskItem from './TaskItem'
 
-export default function TaskList({ tasks, onToggle, onDelete }) {
+export default function TaskList({ tasks, onToggle, onDelete, onAddSubtask, onToggleSubtask, onDeleteSubtask }) {
   if (tasks.length === 0) {
     return <p className="task-list__empty">タスクがありません。追加してください。</p>
   }
@@ -13,6 +13,9 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
           task={task}
           onToggle={onToggle}
           onDelete={onDelete}
+          onAddSubtask={onAddSubtask}
+          onToggleSubtask={onToggleSubtask}
+          onDeleteSubtask={onDeleteSubtask}
         />
       ))}
     </ul>

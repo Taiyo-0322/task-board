@@ -22,7 +22,7 @@ export default function App() {
   const addTask = (text) => {
     setTasks([
       ...tasks,
-      { id: Date.now(), text, completed: false },
+      { id: Date.now(), text, completed: false, subtasks: [] },
     ])
   }
 
@@ -36,11 +36,42 @@ export default function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  const addSubtask = (taskId, text) => {
+    setTasks(tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, subtasks: [...(task.subtasks ?? []), { id: Date.now(), text, completed: false }] }
+        : task
+    ))
+  }
+
+  const toggleSubtask = (taskId, subtaskId) => {
+    setTasks(tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, subtasks: task.subtasks.map((s) => s.id === subtaskId ? { ...s, completed: !s.completed } : s) }
+        : task
+    ))
+  }
+
+  const deleteSubtask = (taskId, subtaskId) => {
+    setTasks(tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, subtasks: task.subtasks.filter((s) => s.id !== subtaskId) }
+        : task
+    ))
+  }
+
   return (
     <div className="app">
       <h1 className="title">Task Board</h1>
       <TaskInput onAdd={addTask} />
-      <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+      <TaskList
+        tasks={tasks}
+        onToggle={toggleTask}
+        onDelete={deleteTask}
+        onAddSubtask={addSubtask}
+        onToggleSubtask={toggleSubtask}
+        onDeleteSubtask={deleteSubtask}
+      />
     </div>
   )
 }

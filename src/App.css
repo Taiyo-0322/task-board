@@ -67,8 +67,7 @@
 /* TaskItem */
 .task-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
   background: #fff;
   padding: 14px 16px;
   border-radius: 10px;
@@ -76,8 +75,14 @@
   transition: opacity 0.2s;
 }
 
-.task-item--completed {
+.task-item--completed > .task-item__main {
   opacity: 0.5;
+}
+
+.task-item__main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .task-item__checkbox {
@@ -94,7 +99,7 @@
   word-break: break-word;
 }
 
-.task-item--completed .task-item__text {
+.task-item--completed .task-item__main .task-item__text {
   text-decoration: line-through;
   color: #999;
 }
@@ -113,5 +118,80 @@
 
 .task-item__delete:hover {
   background-color: #e25555;
+  color: #fff;
+}
+
+/* Subtasks */
+.task-item__subtasks {
+  margin-top: 10px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subtask {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #f7f8fa;
+  border-radius: 7px;
+  border-left: 3px solid #4a90e2;
+}
+
+.subtask--completed {
+  opacity: 0.5;
+}
+
+.subtask__text {
+  flex: 1;
+  font-size: 0.92rem;
+  word-break: break-word;
+}
+
+.subtask--completed .subtask__text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Subtask input */
+.subtask-input {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.subtask-input__field {
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 0.88rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #f7f8fa;
+}
+
+.subtask-input__field:focus {
+  border-color: #4a90e2;
+  background: #fff;
+}
+
+.subtask-input__button {
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a90e2;
+  background: transparent;
+  border: 1px solid #4a90e2;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.subtask-input__button:hover {
+  background-color: #4a90e2;
   color: #fff;
 }
