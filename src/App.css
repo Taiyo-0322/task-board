@@ -1,15 +1,140 @@
+/* Auth */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 36px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.auth-subtitle {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-input {
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-input:focus {
+  border-color: #4a90e2;
+}
+
+.auth-error {
+  font-size: 0.85rem;
+  color: #e25555;
+}
+
+.auth-button {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.auth-button--primary {
+  color: #fff;
+  background-color: #4a90e2;
+}
+
+.auth-button--primary:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.auth-button--primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.auth-button--secondary {
+  color: #4a90e2;
+  background-color: transparent;
+  border: 1.5px solid #4a90e2;
+}
+
+.auth-button--secondary:hover {
+  background-color: #eaf2fd;
+}
+
+/* App header */
 .app {
   max-width: 600px;
   margin: 60px auto;
   padding: 0 16px;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a2e;
-  margin-bottom: 24px;
-  text-align: center;
+}
+
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-header__username {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.logout-button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #888;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #f0f0f0;
 }
 
 /* TaskInput */
